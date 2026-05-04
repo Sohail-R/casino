@@ -51,13 +51,14 @@ export function PropertyInput({
       <div className="max-w-3xl mx-auto">
         <div className="border-2 border-ink bg-card">
           {/* Title bar */}
-          <div className="flex items-center justify-between border-b-2 border-ink px-5 py-3 bg-foreground text-background">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-              {duplicateWarning ? 'Duplicate detected' : 'Manual input required'}
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/60">
-              Step 02
-            </span>
+          <div className="flex items-center justify-between border-b border-ink/15 px-5 py-3 bg-foreground text-background">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rotate-45 bg-accent" />
+              <span className="text-sm font-medium">
+                {duplicateWarning ? 'Duplicate detected' : 'Manual input required'}
+              </span>
+            </div>
+            <span className="text-sm text-background/60 italic">Step two</span>
           </div>
 
           <div className="p-6 sm:p-8">
@@ -85,19 +86,17 @@ export function PropertyInput({
 
             {/* Steps */}
             {manualInputInstructions && manualInputInstructions.length > 0 && (
-              <div className="mt-6 border-2 border-ink">
-                <div className="border-b-2 border-ink px-4 py-2 bg-muted">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">
-                    Quick steps
-                  </span>
+              <div className="mt-6 border border-ink/25">
+                <div className="border-b border-ink/15 px-4 py-2.5 bg-muted">
+                  <span className="label-sans-strong">Quick steps</span>
                 </div>
-                <ol className="divide-y-2 divide-foreground">
+                <ol className="divide-soft">
                   {manualInputInstructions.map((instruction, i) => (
                     <li key={i} className="flex items-start gap-4 px-4 py-3">
-                      <span className="font-display text-xl text-foreground leading-none flex-shrink-0 w-6">
-                        {String(i + 1).padStart(2, '0')}
+                      <span className="font-display text-2xl text-foreground/70 leading-none flex-shrink-0 w-7 italic">
+                        {i + 1}.
                       </span>
-                      <span className="text-sm text-foreground/80 leading-relaxed">
+                      <span className="text-sm text-foreground/85 leading-relaxed">
                         {instruction.replace(/^\d+\.\s*/, '')}
                       </span>
                     </li>
@@ -119,7 +118,7 @@ export function PropertyInput({
               <button
                 onClick={handlePasteSubmit}
                 disabled={!pageContent.trim() || isLoading}
-                className="flex-1 min-w-[200px] inline-flex items-center justify-center gap-2 border-2 border-ink bg-foreground text-background px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] hover:bg-accent hover:text-accent-foreground transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                className="flex-1 min-w-[200px] inline-flex items-center justify-center gap-2 border-2 border-ink bg-foreground text-background px-5 py-3 text-sm font-semibold tracking-wide hover:bg-accent hover:text-accent-foreground transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <>
@@ -129,7 +128,7 @@ export function PropertyInput({
                 ) : (
                   <>
                     Extract data
-                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
                       <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </>
@@ -138,7 +137,7 @@ export function PropertyInput({
               {(replaceMode || onCancelReplace) && (
                 <button
                   onClick={onCancelReplace}
-                  className="border-2 border-ink bg-card text-foreground px-5 py-3 font-mono text-xs uppercase tracking-[0.2em] hover:bg-muted transition-colors"
+                  className="border-2 border-ink bg-card text-foreground px-5 py-3 text-sm font-semibold tracking-wide hover:bg-muted transition-colors"
                 >
                   Cancel
                 </button>
@@ -155,14 +154,14 @@ export function PropertyInput({
     <form onSubmit={handleSubmit} className="max-w-3xl mx-auto">
       {replaceMode && (
         <div className="mb-4 border-2 border-ink bg-accent/40 px-4 py-3 flex items-center justify-between gap-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
-            Replace mode · paste a new Zillow link below
+          <span className="text-sm font-medium text-foreground">
+            Replace mode &mdash; paste a new Zillow link below
           </span>
           {onCancelReplace && (
             <button
               type="button"
               onClick={onCancelReplace}
-              className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground underline underline-offset-4 hover:text-foreground/70"
+              className="text-sm text-foreground underline underline-offset-4 hover:text-foreground/70 italic"
             >
               Cancel
             </button>
@@ -171,15 +170,17 @@ export function PropertyInput({
       )}
 
       <div className="border-2 border-ink bg-card focus-within:bg-card transition-colors">
-        <div className="flex items-center border-b-2 border-ink px-4 py-2 bg-muted">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">
-            Step 01 — Paste a Zillow URL
-          </span>
+        <div className="flex items-center justify-between border-b border-ink/15 px-4 py-2.5 bg-muted">
+          <div className="flex items-center gap-2.5">
+            <span className="w-1.5 h-1.5 rotate-45 bg-accent" />
+            <span className="label-sans-strong">Paste a Zillow URL</span>
+          </div>
+          <span className="label-sans">Step one</span>
         </div>
 
         <div className="flex items-stretch">
-          <div className="flex items-center justify-center w-14 border-r-2 border-ink">
-            <svg className="w-5 h-5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <div className="flex items-center justify-center w-14 border-r border-ink/15">
+            <svg className="w-5 h-5 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
             </svg>
           </div>
@@ -189,14 +190,14 @@ export function PropertyInput({
             value={url}
             onChange={e => setUrl(e.target.value)}
             placeholder="https://www.zillow.com/homedetails/..."
-            className="flex-1 bg-transparent border-none outline-none px-4 py-4 text-foreground placeholder:text-muted-foreground text-base font-mono"
+            className="flex-1 bg-transparent border-none outline-none px-4 py-4 text-foreground placeholder:text-muted-foreground text-base"
             disabled={isLoading}
           />
 
           <button
             type="submit"
             disabled={isLoading || !url.trim() || !isValidZillowUrl}
-            className="flex items-center gap-2 border-l-2 border-ink bg-foreground text-background px-6 font-mono text-xs uppercase tracking-[0.2em] hover:bg-accent hover:text-accent-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-2 border-l border-ink/15 bg-foreground text-background px-6 text-sm font-semibold tracking-wide hover:bg-accent hover:text-accent-foreground disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? (
               <>
@@ -206,7 +207,7 @@ export function PropertyInput({
             ) : (
               <>
                 Analyze
-                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
                   <path d="M5 12h14M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </>
@@ -216,21 +217,21 @@ export function PropertyInput({
       </div>
 
       {/* Slot indicator */}
-      <div className="flex items-center justify-center gap-6 mt-6 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+      <div className="flex items-center justify-center gap-5 mt-6 text-sm text-muted-foreground">
         <span className="flex items-center gap-2">
-          <span className={`w-2.5 h-2.5 border-2 border-ink ${propertyCount >= 1 ? 'bg-foreground' : 'bg-card'}`} />
-          Property 01
+          <span className={`w-2 h-2 rotate-45 ${propertyCount >= 1 ? 'bg-foreground' : 'border border-foreground/40'}`} />
+          <span className={propertyCount >= 1 ? 'text-foreground font-medium' : ''}>First property</span>
         </span>
-        <span className="w-8 h-px bg-foreground" />
+        <span className="w-6 h-px bg-foreground/30" />
         <span className="flex items-center gap-2">
-          <span className={`w-2.5 h-2.5 border-2 border-ink ${propertyCount >= 2 ? 'bg-foreground' : 'bg-card'}`} />
-          Property 02
+          <span className={`w-2 h-2 rotate-45 ${propertyCount >= 2 ? 'bg-foreground' : 'border border-foreground/40'}`} />
+          <span className={propertyCount >= 2 ? 'text-foreground font-medium' : ''}>Second property</span>
         </span>
       </div>
 
       {url && !isValidZillowUrl && (
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.2em] text-destructive mt-4">
-          Please enter a valid Zillow URL
+        <p className="text-center text-sm text-destructive mt-4 italic">
+          Please enter a valid Zillow URL.
         </p>
       )}
     </form>

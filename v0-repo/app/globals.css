@@ -4,82 +4,82 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Property analysis: warm cream paper, near-black ink, refined teal-cyan accent */
-  --background: oklch(0.965 0.018 78);
-  --foreground: oklch(0.16 0.012 60);
-  --card: oklch(0.99 0.012 80);
-  --card-foreground: oklch(0.16 0.012 60);
-  --popover: oklch(0.99 0.012 80);
-  --popover-foreground: oklch(0.16 0.012 60);
+  /* Editorial: warm beige paper, deep ink, sage green accent */
+  --background: oklch(0.945 0.022 85);
+  --foreground: oklch(0.18 0.012 60);
+  --card: oklch(0.975 0.018 85);
+  --card-foreground: oklch(0.18 0.012 60);
+  --popover: oklch(0.975 0.018 85);
+  --popover-foreground: oklch(0.18 0.012 60);
 
-  /* Primary = near-black ink */
-  --primary: oklch(0.16 0.012 60);
-  --primary-foreground: oklch(0.98 0.014 80);
+  /* Primary = deep ink */
+  --primary: oklch(0.18 0.012 60);
+  --primary-foreground: oklch(0.97 0.018 85);
 
-  --secondary: oklch(0.93 0.018 78);
-  --secondary-foreground: oklch(0.16 0.012 60);
+  --secondary: oklch(0.91 0.022 85);
+  --secondary-foreground: oklch(0.18 0.012 60);
 
-  --muted: oklch(0.93 0.018 78);
-  --muted-foreground: oklch(0.44 0.012 60);
+  --muted: oklch(0.91 0.022 85);
+  --muted-foreground: oklch(0.46 0.014 70);
 
-  /* Accent = vivid teal-cyan (property/architectural feel) */
-  --accent: oklch(0.74 0.135 210);
-  --accent-foreground: oklch(0.16 0.012 60);
+  /* Accent = muted sage green */
+  --accent: oklch(0.74 0.06 145);
+  --accent-foreground: oklch(0.18 0.012 60);
 
-  --destructive: oklch(0.56 0.20 27);
-  --destructive-foreground: oklch(0.98 0.014 80);
+  --destructive: oklch(0.56 0.18 27);
+  --destructive-foreground: oklch(0.97 0.018 85);
 
-  --success: oklch(0.58 0.16 165);
-  --success-foreground: oklch(0.98 0.014 80);
+  --success: oklch(0.62 0.10 150);
+  --success-foreground: oklch(0.97 0.018 85);
 
-  --warning: oklch(0.78 0.14 70);
-  --warning-foreground: oklch(0.16 0.012 60);
+  --warning: oklch(0.78 0.12 70);
+  --warning-foreground: oklch(0.18 0.012 60);
 
-  /* Borders are near-black for sharp editorial lines */
-  --border: oklch(0.16 0.012 60);
-  --border-soft: oklch(0.84 0.018 78);
-  --input: oklch(0.95 0.018 78);
-  --ring: oklch(0.16 0.012 60);
+  /* Borders */
+  --border: oklch(0.18 0.012 60);
+  --border-soft: oklch(0.82 0.022 85);
+  --input: oklch(0.93 0.022 85);
+  --ring: oklch(0.18 0.012 60);
 
-  --chart-1: oklch(0.16 0.012 60);
-  --chart-2: oklch(0.74 0.135 210);
-  --chart-3: oklch(0.58 0.16 165);
-  --chart-4: oklch(0.65 0.18 30);
-  --chart-5: oklch(0.50 0.12 250);
+  --chart-1: oklch(0.18 0.012 60);
+  --chart-2: oklch(0.62 0.08 150);
+  --chart-3: oklch(0.74 0.06 145);
+  --chart-4: oklch(0.55 0.10 50);
+  --chart-5: oklch(0.50 0.06 250);
 
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: oklch(0.16 0.012 60);
-  --foreground: oklch(0.96 0.014 80);
-  --card: oklch(0.20 0.012 60);
-  --card-foreground: oklch(0.96 0.014 80);
-  --popover: oklch(0.20 0.012 60);
-  --popover-foreground: oklch(0.96 0.014 80);
-  --primary: oklch(0.96 0.014 80);
-  --primary-foreground: oklch(0.16 0.012 60);
-  --secondary: oklch(0.24 0.012 60);
-  --secondary-foreground: oklch(0.96 0.014 80);
-  --muted: oklch(0.24 0.012 60);
-  --muted-foreground: oklch(0.68 0.012 60);
-  --accent: oklch(0.74 0.135 210);
-  --accent-foreground: oklch(0.16 0.012 60);
-  --destructive: oklch(0.56 0.20 27);
-  --destructive-foreground: oklch(0.98 0.014 80);
-  --success: oklch(0.65 0.16 165);
-  --success-foreground: oklch(0.16 0.012 60);
-  --warning: oklch(0.78 0.14 70);
-  --warning-foreground: oklch(0.16 0.012 60);
-  --border: oklch(0.96 0.014 80);
-  --border-soft: oklch(0.30 0.012 60);
-  --input: oklch(0.24 0.012 60);
-  --ring: oklch(0.96 0.014 80);
-  --chart-1: oklch(0.96 0.014 80);
-  --chart-2: oklch(0.74 0.135 210);
-  --chart-3: oklch(0.65 0.16 165);
-  --chart-4: oklch(0.65 0.18 30);
-  --chart-5: oklch(0.55 0.12 250);
+  --background: oklch(0.18 0.012 60);
+  --foreground: oklch(0.95 0.018 85);
+  --card: oklch(0.22 0.012 60);
+  --card-foreground: oklch(0.95 0.018 85);
+  --popover: oklch(0.22 0.012 60);
+  --popover-foreground: oklch(0.95 0.018 85);
+  --primary: oklch(0.95 0.018 85);
+  --primary-foreground: oklch(0.18 0.012 60);
+  --secondary: oklch(0.26 0.012 60);
+  --secondary-foreground: oklch(0.95 0.018 85);
+  --muted: oklch(0.26 0.012 60);
+  --muted-foreground: oklch(0.68 0.014 70);
+  --accent: oklch(0.74 0.06 145);
+  --accent-foreground: oklch(0.18 0.012 60);
+  --destructive: oklch(0.56 0.18 27);
+  --destructive-foreground: oklch(0.97 0.018 85);
+  --success: oklch(0.65 0.10 150);
+  --success-foreground: oklch(0.18 0.012 60);
+  --warning: oklch(0.78 0.12 70);
+  --warning-foreground: oklch(0.18 0.012 60);
+  --border: oklch(0.95 0.018 85);
+  --border-soft: oklch(0.32 0.012 60);
+  --input: oklch(0.26 0.012 60);
+  --ring: oklch(0.95 0.018 85);
+  --chart-1: oklch(0.95 0.018 85);
+  --chart-2: oklch(0.74 0.06 145);
+  --chart-3: oklch(0.65 0.10 150);
+  --chart-4: oklch(0.55 0.10 50);
+  --chart-5: oklch(0.55 0.08 250);
 }
 
 @theme inline {
@@ -179,6 +179,37 @@
     font-size: 0.78rem;
     font-weight: 500;
     color: var(--muted-foreground);
+  }
+  /* Sentence-case sans label — replaces blocky uppercase mono for in-dashboard chrome. */
+  .label-sans {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--muted-foreground);
+  }
+  .label-sans-strong {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--foreground);
+  }
+  .pill-sans {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.625rem;
+    border: 1.5px solid var(--foreground);
+    background: var(--card);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   /* Legacy grid-pattern alias — keep as no-op to avoid breakage. */

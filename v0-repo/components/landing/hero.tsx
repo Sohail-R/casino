@@ -32,17 +32,14 @@ export function Hero() {
       <div className="absolute inset-0 noise pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 sm:pt-20 sm:pb-28">
-        {/* Eyebrow with LIVE indicator */}
+        {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-10 rise-in" style={{ animationDelay: '0ms' }}>
-          <span className="relative flex items-center justify-center">
-            <span className="absolute w-3 h-3 rounded-full bg-accent pulse-live" />
-            <span className="relative w-1.5 h-1.5 rounded-full bg-foreground" />
-          </span>
-          <span className="eyebrow-strong">
-            Live · Property intelligence engine
+          <span className="w-2 h-2 rotate-45 bg-accent" />
+          <span className="font-display italic text-lg text-foreground">
+            Property intelligence
           </span>
           <span className="hidden sm:inline-block w-8 h-px bg-foreground/30" />
-          <span className="hidden sm:inline-block eyebrow">
+          <span className="hidden sm:inline-block text-sm text-muted-foreground italic">
             Built for buyers, not brokers
           </span>
         </div>
@@ -91,9 +88,9 @@ export function Hero() {
             </p>
           </div>
           <div className="lg:col-span-5 lg:text-right">
-            <div className="inline-flex items-center gap-3 eyebrow">
-              <span className="w-8 h-px bg-foreground" />
-              <span>Scroll to learn how</span>
+            <div className="inline-flex items-center gap-3 text-sm text-muted-foreground italic">
+              <span className="w-8 h-px bg-foreground/40" />
+              <span>scroll to learn how</span>
             </div>
           </div>
         </div>
@@ -126,18 +123,17 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Property-metric ribbon (replaces the city marquee) */}
+      {/* Property-metric ribbon */}
       <div className="relative border-t-2 border-ink bg-foreground text-background overflow-hidden">
-        <div className="flex whitespace-nowrap marquee-track py-3">
+        <div className="flex whitespace-nowrap marquee-track py-3.5">
           {[...METRIC_RIBBON, ...METRIC_RIBBON].map((metric, i) => (
             <span
               key={`${metric}-${i}`}
-              className="inline-flex items-center gap-3 px-6 eyebrow-strong text-background"
+              className="inline-flex items-center gap-3 px-7 text-sm font-medium text-background"
             >
               <span className="w-1.5 h-1.5 rotate-45 bg-accent" />
               {metric}
-              <span className="text-background/40">·</span>
-              <span className="text-background/55 font-normal tracking-[0.16em]">analyzed</span>
+              <span className="font-display italic text-background/55 ml-1">analyzed</span>
             </span>
           ))}
         </div>
@@ -152,7 +148,7 @@ function StatBox({ big, small }: { big: string; small: string }) {
       <p className="font-display text-4xl sm:text-5xl text-foreground leading-none tabular-nums">
         {big}
       </p>
-      <p className="mt-2 eyebrow">
+      <p className="mt-2 text-sm text-muted-foreground italic">
         {small}
       </p>
     </div>

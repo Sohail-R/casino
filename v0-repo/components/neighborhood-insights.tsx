@@ -15,13 +15,13 @@ export function NeighborhoodInsights({ property }: NeighborhoodInsightsProps) {
   return (
     <div className="space-y-5">
       {/* Disclaimer */}
-      <div className="border-2 border-ink bg-muted px-4 py-3 flex items-start gap-3">
+      <div className="border border-ink/20 bg-muted px-4 py-3 flex items-start gap-3">
         <svg
-          className="w-4 h-4 text-foreground flex-shrink-0 mt-0.5"
+          className="w-4 h-4 text-foreground/70 flex-shrink-0 mt-0.5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          strokeWidth={2.5}
+          strokeWidth={2}
         >
           <path
             strokeLinecap="round"
@@ -29,13 +29,13 @@ export function NeighborhoodInsights({ property }: NeighborhoodInsightsProps) {
             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] leading-relaxed text-muted-foreground">
-          Scores are estimates based on location & price. Visit Zillow for official data.
+        <p className="text-sm leading-relaxed text-muted-foreground italic">
+          Scores are estimates based on location and price. Visit Zillow for official data.
         </p>
       </div>
 
       {/* Scores */}
-      <div className="grid grid-cols-3 border-2 border-ink bg-card">
+      <div className="grid grid-cols-3 border border-ink/20 bg-card">
         <ScoreCell label="Walk" score={property.walkScore} />
         <ScoreCell label="Transit" score={property.transitScore} divider />
         <ScoreCell label="Bike" score={property.bikeScore} divider />
@@ -43,22 +43,18 @@ export function NeighborhoodInsights({ property }: NeighborhoodInsightsProps) {
 
       {/* School Rating */}
       {property.schoolRating && (
-        <div className="border-2 border-ink bg-card overflow-hidden">
-          <div className="border-b-2 border-ink px-4 py-2 bg-muted flex items-center justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">
-              School rating
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Avg nearby
-            </span>
+        <div className="border border-ink/20 bg-card overflow-hidden">
+          <div className="border-b border-ink/15 px-4 py-2.5 bg-muted flex items-center justify-between">
+            <span className="font-display italic text-base text-foreground">School rating</span>
+            <span className="text-sm text-muted-foreground italic">average nearby</span>
           </div>
           <div className="p-4 flex items-end justify-between">
             <span className="font-display text-5xl text-foreground leading-none">
               {property.schoolRating}
-              <span className="font-display text-2xl text-muted-foreground">/10</span>
+              <span className="font-display text-2xl text-muted-foreground italic">/10</span>
             </span>
           </div>
-          <div className="h-2 border-t-2 border-ink bg-card relative">
+          <div className="h-2 border-t border-ink/15 bg-card relative">
             <div
               className="absolute inset-y-0 left-0 bg-foreground"
               style={{ width: `${property.schoolRating * 10}%` }}
@@ -69,12 +65,10 @@ export function NeighborhoodInsights({ property }: NeighborhoodInsightsProps) {
 
       {/* Crime */}
       {property.crimeIndex && (
-        <div className="border-2 border-ink bg-card flex items-center justify-between px-4 py-3">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">
-            Crime level
-          </span>
+        <div className="border border-ink/20 bg-card flex items-center justify-between px-4 py-3">
+          <span className="font-display italic text-base text-foreground">Crime level</span>
           <span
-            className={`font-mono text-[10px] uppercase tracking-[0.2em] border-2 border-ink px-2 py-1 ${
+            className={`text-sm font-medium border border-ink px-2.5 py-1 rounded-sm ${
               property.crimeIndex === 'Low'
                 ? 'bg-success text-success-foreground'
                 : property.crimeIndex === 'Medium'
@@ -89,8 +83,8 @@ export function NeighborhoodInsights({ property }: NeighborhoodInsightsProps) {
 
       {/* Empty */}
       {!hasAnyData && (
-        <div className="border-2 border-ink bg-card text-center py-10 px-4">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+        <div className="border border-ink/20 bg-card text-center py-10 px-4">
+          <p className="text-sm text-muted-foreground italic">
             No neighborhood data available
           </p>
         </div>
@@ -103,9 +97,9 @@ function ScoreCell({ label, score, divider }: { label: string; score: number | n
   return (
     <div className={`p-5 ${divider ? 'border-l border-soft' : ''}`}>
       <p className="font-display text-4xl text-foreground leading-none">
-        {score ?? '—'}
+        {score ?? <span className="text-muted-foreground italic">&mdash;</span>}
       </p>
-      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground mt-2">
+      <p className="text-sm text-muted-foreground mt-2 italic">
         {label} score
       </p>
     </div>

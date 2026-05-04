@@ -34,10 +34,11 @@ export function MortgageCalculator({ price, propertyTax = 0, hoaFees = 0 }: Mort
   return (
     <div className="space-y-6">
       {/* Result */}
-      <div className="border-2 border-ink bg-accent/30">
-        <div className="border-b-2 border-ink px-4 py-2 bg-foreground text-background">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-            Estimated monthly payment
+      <div className="border border-ink/20 bg-accent/30">
+        <div className="border-b border-ink/15 px-4 py-2.5 bg-foreground text-background">
+          <span className="text-sm font-medium">
+            <span className="font-display italic mr-1.5">Your</span>
+            estimated monthly payment
           </span>
         </div>
         <div className="p-5">
@@ -49,11 +50,12 @@ export function MortgageCalculator({ price, propertyTax = 0, hoaFees = 0 }: Mort
 
       {/* Breakdown */}
       <div>
-        <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
-          / Breakdown
+        <h4 className="font-display italic text-lg text-foreground mb-2 flex items-center gap-2">
+          <span className="inline-block w-1.5 h-1.5 rotate-45 bg-accent" />
+          Breakdown
         </h4>
-        <div className="border-2 border-ink bg-card divide-soft">
-          <BreakdownRow label="Principal & interest" value={formatCurrency(calculations.monthlyPI)} />
+        <div className="border border-ink/20 bg-card divide-soft">
+          <BreakdownRow label="Principal &amp; interest" value={formatCurrency(calculations.monthlyPI)} />
           <BreakdownRow label="Property tax" value={formatCurrency(calculations.monthlyTax)} />
           {hoaFees > 0 && <BreakdownRow label="HOA fees" value={formatCurrency(hoaFees)} />}
         </div>
@@ -83,20 +85,18 @@ export function MortgageCalculator({ price, propertyTax = 0, hoaFees = 0 }: Mort
 
         <div>
           <div className="flex items-center justify-between mb-2">
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-              Loan term
-            </span>
+            <span className="text-sm text-muted-foreground">Loan term</span>
           </div>
-          <div className="flex border-2 border-ink">
+          <div className="flex border border-ink/30 rounded-sm overflow-hidden">
             {[15, 20, 30].map((term, i) => (
               <button
                 key={term}
                 onClick={() => setLoanTerm(term)}
-                className={`flex-1 py-2.5 font-mono text-[10px] uppercase tracking-[0.2em] transition-colors ${
-                  i > 0 ? 'border-l-2 border-ink' : ''
+                className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
+                  i > 0 ? 'border-l border-ink/15' : ''
                 } ${loanTerm === term ? 'bg-foreground text-background' : 'bg-card text-foreground hover:bg-muted'}`}
               >
-                {term} yr
+                {term} years
               </button>
             ))}
           </div>
@@ -104,7 +104,7 @@ export function MortgageCalculator({ price, propertyTax = 0, hoaFees = 0 }: Mort
       </div>
 
       {/* Loan info */}
-      <div className="border-t-2 border-ink pt-4 space-y-2">
+      <div className="border-t border-ink/15 pt-4 space-y-2">
         <InfoRow label="Loan amount" value={formatCurrency(calculations.loanAmount)} />
         <InfoRow label="Total interest" value={formatCurrency(calculations.totalInterest)} />
       </div>
@@ -115,9 +115,7 @@ export function MortgageCalculator({ price, propertyTax = 0, hoaFees = 0 }: Mort
 function BreakdownRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between px-4 py-3">
-      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-        {label}
-      </span>
+      <span className="text-sm text-muted-foreground">{label}</span>
       <span className="font-display text-lg text-foreground leading-none">{value}</span>
     </div>
   )
@@ -126,10 +124,8 @@ function BreakdownRow({ label, value }: { label: string; value: string }) {
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-        {label}
-      </span>
-      <span className="font-mono text-sm text-foreground">{value}</span>
+      <span className="text-sm text-muted-foreground">{label}</span>
+      <span className="font-display text-base text-foreground">{value}</span>
     </div>
   )
 }
@@ -156,16 +152,14 @@ function SliderInput({
   return (
     <div>
       <div className="flex items-center justify-between mb-2">
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-          {label}
-        </span>
+        <span className="text-sm text-muted-foreground">{label}</span>
         <div className="flex items-baseline gap-2">
           <span className="font-display text-xl text-foreground leading-none">
             {value}
             {suffix}
           </span>
           {secondaryValue && (
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            <span className="text-sm text-muted-foreground italic">
               ({secondaryValue})
             </span>
           )}
@@ -178,7 +172,7 @@ function SliderInput({
         min={min}
         max={max}
         step={step}
-        className="w-full h-1 bg-foreground appearance-none cursor-pointer accent-foreground"
+        className="w-full h-1 bg-foreground/30 appearance-none cursor-pointer accent-foreground rounded-full"
       />
     </div>
   )

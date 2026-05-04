@@ -103,29 +103,30 @@ export function ComparisonView({ property1, property2, onRemove, onReplace }: Co
 
       {/* Comparison Card */}
       <div className="border-2 border-ink bg-card overflow-hidden">
-        <div className="flex items-center justify-between border-b-2 border-ink px-5 py-3 bg-foreground text-background">
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-            Side-by-side comparison
+        <div className="flex items-center justify-between border-b border-ink/15 px-5 py-3 bg-foreground text-background">
+          <span className="text-sm font-medium">
+            <span className="font-display italic mr-1.5">The</span>
+            side-by-side
           </span>
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/60">
+          <span className="text-sm text-background/65 italic">
             {comparisons.financial.length + comparisons.size.length + comparisons.neighborhood.length} metrics
           </span>
         </div>
 
         <div className="px-6 py-6">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-4 border-2 border-ink bg-card p-0 h-auto rounded-none">
-              <TabsTrigger value="overview" className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none">
+            <TabsList className="grid w-full grid-cols-4 border-b border-ink/20 bg-transparent p-0 h-auto rounded-none">
+              <TabsTrigger value="overview" className="rounded-none text-[14px] font-medium py-3 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=active]:shadow-none text-muted-foreground hover:text-foreground transition-colors">
                 Overview
               </TabsTrigger>
-              <TabsTrigger value="financial" className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none">
+              <TabsTrigger value="financial" className="rounded-none text-[14px] font-medium py-3 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=active]:shadow-none text-muted-foreground hover:text-foreground transition-colors">
                 Financial
               </TabsTrigger>
-              <TabsTrigger value="size" className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none">
+              <TabsTrigger value="size" className="rounded-none text-[14px] font-medium py-3 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=active]:shadow-none text-muted-foreground hover:text-foreground transition-colors">
                 Size
               </TabsTrigger>
-              <TabsTrigger value="area" className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none">
-                Area
+              <TabsTrigger value="area" className="rounded-none text-[14px] font-medium py-3 border-b-2 border-transparent data-[state=active]:border-foreground data-[state=active]:bg-transparent data-[state=active]:text-foreground data-[state=active]:font-semibold data-[state=active]:shadow-none text-muted-foreground hover:text-foreground transition-colors">
+                Neighborhood
               </TabsTrigger>
             </TabsList>
 
@@ -193,25 +194,26 @@ function PropertyHeader({
 }) {
   return (
     <article className="border-2 border-ink bg-card">
-      <div className="flex items-center justify-between border-b-2 border-ink px-4 py-2 bg-foreground text-background">
-        <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between border-b border-ink/15 px-4 py-3 bg-foreground text-background">
+        <div className="flex items-center gap-2.5">
           <span
-            className={`w-2 h-2 rounded-full ring-1 ring-background ${
+            className={`w-2 h-2 rotate-45 ${
               accent === 'lime' ? 'bg-accent' : 'bg-background'
             }`}
           />
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-            Property {String(index + 1).padStart(2, '0')}
+          <span className="text-sm font-medium">
+            <span className="font-display italic mr-1.5">No.</span>
+            {index + 1}
           </span>
         </div>
         <div className="flex items-center gap-1">
           {onReplace && (
             <button
               onClick={() => onReplace(index)}
-              className="flex items-center gap-1.5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.2em] hover:bg-background hover:text-foreground transition-colors"
+              className="flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-sm hover:bg-background hover:text-foreground transition-colors"
               title="Re-paste source"
             >
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25">
                 <path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               Re-paste
@@ -219,10 +221,10 @@ function PropertyHeader({
           )}
           <button
             onClick={() => onRemove(index)}
-            className="p-1 hover:bg-destructive transition-colors"
+            className="p-1.5 rounded-sm hover:bg-destructive transition-colors"
             aria-label="Remove property"
           >
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.25">
               <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -233,17 +235,17 @@ function PropertyHeader({
         <h3 className="font-display text-2xl text-foreground leading-tight tracking-tight text-balance">
           {property.address}
         </h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground italic">
           {[property.city, property.state, property.zipCode].filter(Boolean).join(', ')}
         </p>
         <p className="font-display text-3xl text-foreground mt-3 leading-none">
           {formatCurrency(property.price)}
         </p>
-        <div className="flex items-center gap-3 mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-          <span>{property.bedrooms} bd</span>
-          <span>·</span>
-          <span>{property.bathrooms} ba</span>
-          <span>·</span>
+        <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground italic">
+          <span>{property.bedrooms} beds</span>
+          <span className="text-foreground/25">/</span>
+          <span>{property.bathrooms} baths</span>
+          <span className="text-foreground/25">/</span>
           <span>{formatNumber(property.sqft)} sqft</span>
         </div>
       </div>
@@ -265,21 +267,19 @@ function SummaryCard({
   const winningProperty = winner === 1 ? property1 : property2
 
   return (
-    <div className="border-2 border-ink bg-card overflow-hidden">
-      <div className="border-b-2 border-ink bg-muted px-4 py-2">
-        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">
-          {title}
-        </span>
+    <div className="border border-ink/20 bg-card overflow-hidden">
+      <div className="border-b border-ink/15 bg-muted px-4 py-2.5">
+        <span className="font-display italic text-base text-foreground">{title}</span>
       </div>
       <div className="p-4">
         <div className="flex items-center gap-2 mb-2">
           <span
-            className={`w-2.5 h-2.5 border-2 border-ink ${
+            className={`w-2 h-2 rotate-45 ${
               winner === 1 ? 'bg-foreground' : 'bg-accent'
             }`}
           />
-          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-            Property {String(winner).padStart(2, '0')} wins
+          <span className="text-sm text-muted-foreground italic">
+            Property {winner} wins
           </span>
         </div>
         <p className="font-display text-xl text-foreground leading-tight truncate">
@@ -299,47 +299,48 @@ function ComparisonTable({ items }: { items: ComparisonItem[] }) {
   }
 
   return (
-    <div className="border-2 border-ink bg-card overflow-hidden">
-      <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b-2 border-ink bg-foreground text-background">
-        <div className="px-4 py-3 font-mono text-[10px] uppercase tracking-[0.25em]">
+    <div className="border border-ink/20 bg-card overflow-hidden">
+      <div className="grid grid-cols-[1.4fr_1fr_1fr] border-b border-ink/15 bg-foreground text-background">
+        <div className="px-4 py-3 text-sm font-medium">
+          <span className="font-display italic mr-1.5">the</span>
           Metric
         </div>
-        <div className="px-4 py-3 font-mono text-[10px] uppercase tracking-[0.25em] border-l-2 border-background flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-background" />
-          Property 01
+        <div className="px-4 py-3 text-sm font-medium border-l border-background/15 flex items-center gap-2">
+          <span className="w-2 h-2 rotate-45 bg-background" />
+          First property
         </div>
-        <div className="px-4 py-3 font-mono text-[10px] uppercase tracking-[0.25em] border-l-2 border-background flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-accent" />
-          Property 02
+        <div className="px-4 py-3 text-sm font-medium border-l border-background/15 flex items-center gap-2">
+          <span className="w-2 h-2 rotate-45 bg-accent" />
+          Second property
         </div>
       </div>
-      <div className="divide-y-2 divide-foreground">
+      <div className="divide-soft">
         {items.map((item, idx) => (
           <div key={idx} className="grid grid-cols-[1.4fr_1fr_1fr]">
-            <div className="px-4 py-3 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground border-r-2 border-ink flex items-center">
+            <div className="px-4 py-3 text-sm text-muted-foreground border-r border-ink/15 flex items-center">
               {item.label}
             </div>
             <div
-              className={`px-4 py-3 font-display text-lg flex items-center justify-between gap-2 border-r-2 border-ink ${
-                item.winner === 1 ? 'bg-accent/30 text-foreground' : 'text-foreground/80'
+              className={`px-4 py-3 font-display text-lg flex items-center justify-between gap-2 border-r border-ink/15 ${
+                item.winner === 1 ? 'bg-accent/25 text-foreground' : 'text-foreground/80'
               }`}
             >
               <span>{formatValue(item.value1, item.format)}</span>
               {item.winner === 1 && (
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] border-2 border-ink px-1.5 py-0.5 bg-card text-foreground">
-                  Win
+                <span className="text-xs font-semibold italic text-foreground/80">
+                  &mdash; wins
                 </span>
               )}
             </div>
             <div
               className={`px-4 py-3 font-display text-lg flex items-center justify-between gap-2 ${
-                item.winner === 2 ? 'bg-accent/30 text-foreground' : 'text-foreground/80'
+                item.winner === 2 ? 'bg-accent/25 text-foreground' : 'text-foreground/80'
               }`}
             >
               <span>{formatValue(item.value2, item.format)}</span>
               {item.winner === 2 && (
-                <span className="font-mono text-[9px] uppercase tracking-[0.2em] border-2 border-ink px-1.5 py-0.5 bg-card text-foreground">
-                  Win
+                <span className="text-xs font-semibold italic text-foreground/80">
+                  &mdash; wins
                 </span>
               )}
             </div>

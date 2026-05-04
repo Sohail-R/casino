@@ -165,15 +165,15 @@ export default function DashboardPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Page Heading */}
-        <section className="mb-10 border-b-2 border-ink pb-8">
+        <section className="mb-10 border-b border-ink/15 pb-8">
           <div className="flex items-end justify-between flex-wrap gap-4">
             <div>
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-3">
+              <p className="label-sans mb-3">
                 {properties.length === 0
-                  ? '01 — Begin'
+                  ? 'Step one of three'
                   : properties.length === 1
-                    ? '02 — Add a second property'
-                    : '03 — Compare'}
+                    ? 'Step two of three'
+                    : 'Step three of three'}
               </p>
               <h1 className="font-display text-5xl sm:text-6xl text-foreground tracking-tight leading-[0.95] text-balance">
                 {replaceTarget !== null
@@ -185,8 +185,9 @@ export default function DashboardPage() {
                       : 'Side-by-side intelligence.'}
               </h1>
             </div>
-            <div className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
-              {properties.length} / 2 properties
+            <div className="label-sans">
+              <span className="font-display text-2xl text-foreground leading-none">{properties.length}</span>
+              <span className="text-muted-foreground"> &nbsp;of two properties</span>
             </div>
           </div>
         </section>
@@ -207,7 +208,8 @@ export default function DashboardPage() {
         {/* Error */}
         {error && (
           <div className="mt-6 border-2 border-ink bg-destructive/10 px-4 py-3 text-sm text-foreground max-w-2xl mx-auto">
-            <strong className="font-mono uppercase tracking-wider text-xs">Error:</strong> {error}
+            <strong className="font-display text-base italic mr-1">Error —</strong>
+            <span>{error}</span>
           </div>
         )}
 
@@ -217,7 +219,7 @@ export default function DashboardPage() {
             <div className="inline-flex border-2 border-ink p-1 bg-card">
               <button
                 onClick={() => setActiveView('single')}
-                className={`px-5 py-2 text-sm font-medium font-mono uppercase tracking-wider transition-colors ${
+                className={`px-5 py-2 text-sm font-medium transition-colors ${
                   activeView === 'single'
                     ? 'bg-foreground text-background'
                     : 'text-foreground hover:bg-muted'
@@ -227,7 +229,7 @@ export default function DashboardPage() {
               </button>
               <button
                 onClick={() => setActiveView('compare')}
-                className={`px-5 py-2 text-sm font-medium font-mono uppercase tracking-wider transition-colors ${
+                className={`px-5 py-2 text-sm font-medium transition-colors ${
                   activeView === 'compare'
                     ? 'bg-foreground text-background'
                     : 'text-foreground hover:bg-muted'
@@ -282,9 +284,9 @@ export default function DashboardPage() {
             <div className="flex justify-center mt-10">
               <button
                 onClick={handleClearAll}
-                className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 italic"
               >
-                Clear all & start over
+                Clear all and start over
               </button>
             </div>
           </div>
@@ -293,11 +295,9 @@ export default function DashboardPage() {
         {/* Empty State */}
         {properties.length === 0 && !isLoading && !needsManualInput && (
           <div className="mt-20 max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 border-2 border-ink px-4 py-2 mb-6 bg-card">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              <span className="font-mono text-xs uppercase tracking-[0.2em] text-foreground">
-                Awaiting input
-              </span>
+            <div className="inline-flex items-center gap-2 mb-6">
+              <span className="w-1.5 h-1.5 rotate-45 bg-accent" />
+              <span className="label-sans-strong">Awaiting your first listing</span>
             </div>
             <p className="font-display text-3xl text-foreground leading-tight text-balance">
               Drop any Zillow URL above.
@@ -326,20 +326,16 @@ function AddSecondPropertyPrompt() {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="border-2 border-ink bg-card overflow-hidden">
-        <div className="border-b-2 border-ink px-5 py-2 bg-foreground text-background flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent ring-1 ring-background pulse-live" />
-            <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
-              Slot 02 — Empty
-            </span>
+        <div className="border-b border-ink/15 px-5 py-3 bg-foreground text-background flex items-center justify-between">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rotate-45 bg-accent" />
+            <span className="text-sm font-medium">Second listing</span>
           </div>
-          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/60">
-            Awaiting URL
-          </span>
+          <span className="text-sm text-background/65 italic">Empty</span>
         </div>
 
         <div className="px-7 py-9 text-center">
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-4">
+          <p className="label-sans mb-4">
             Add a second listing to unlock comparison
           </p>
           <h3 className="font-display text-3xl sm:text-4xl text-foreground tracking-tight leading-[1.05] text-balance">
@@ -348,21 +344,21 @@ function AddSecondPropertyPrompt() {
             <em className="not-italic text-muted-foreground">to see the verdict.</em>
           </h3>
           <p className="text-foreground/70 mt-4 max-w-md mx-auto leading-relaxed">
-            We&apos;ll line them up side-by-side — price, taxes, mortgage, schools, walkability — and
+            We&apos;ll line them up side-by-side &mdash; price, taxes, mortgage, schools, walkability &mdash; and
             tell you which one wins.
           </p>
 
           <button
             onClick={handleScrollToInput}
-            className="group inline-flex items-center gap-3 mt-7 border-2 border-ink bg-foreground text-background px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="group inline-flex items-center gap-2.5 mt-7 border-2 border-ink bg-foreground text-background px-6 py-3 text-sm font-semibold tracking-wide hover:bg-accent hover:text-accent-foreground transition-colors"
           >
             Add second property
             <svg
-              className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5"
+              className="w-4 h-4 transition-transform group-hover:-translate-y-0.5"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth={2.5}
+              strokeWidth={2.25}
             >
               <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>

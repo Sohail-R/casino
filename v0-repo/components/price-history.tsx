@@ -13,19 +13,18 @@ export function PriceHistory({ history }: PriceHistoryProps) {
 
   return (
     <div>
-      <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
-        / Price history
+      <h4 className="font-display italic text-lg text-foreground mb-2 flex items-center gap-2">
+        <span className="inline-block w-1.5 h-1.5 rotate-45 bg-accent" />
+        Price history
       </h4>
-      <div className="border-2 border-ink bg-card divide-soft">
+      <div className="border border-ink/20 bg-card divide-soft">
         {history.slice(0, 5).map((item, index) => (
           <div key={index} className="flex items-center justify-between px-4 py-3">
             <div className="flex items-center gap-3">
-              <span className="w-2 h-2 border-2 border-ink bg-foreground" />
+              <span className="w-1.5 h-1.5 rotate-45 bg-foreground" />
               <div>
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground">
-                  {item.event}
-                </p>
-                <p className="font-mono text-[10px] text-muted-foreground mt-0.5">{item.date}</p>
+                <p className="text-sm font-medium text-foreground">{item.event}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 italic">{item.date}</p>
               </div>
             </div>
             <span className="font-display text-lg text-foreground leading-none">

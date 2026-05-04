@@ -67,10 +67,7 @@ export function Preview() {
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
               propinsight / dashboard
             </span>
-            <span className="inline-flex items-center gap-1.5 eyebrow-strong text-foreground">
-              <span className="w-1.5 h-1.5 rotate-45 bg-accent pulse-live" />
-              Live
-            </span>
+            <span className="w-3" />
           </div>
 
           {/* Header row */}
