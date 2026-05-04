@@ -172,4 +172,76 @@
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+
+  /* Soft inner separator — used inside a hard-bordered card to reduce the "blocky" stacked feel. */
+  .divide-soft > * + * {
+    border-top: 1px solid color-mix(in oklch, var(--foreground) 12%, transparent);
+  }
+  .border-soft {
+    border-color: color-mix(in oklch, var(--foreground) 14%, transparent);
+  }
+
+  /* Live indicator pulse */
+  @keyframes pulse-live {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.55; transform: scale(0.85); }
+  }
+  .pulse-live {
+    animation: pulse-live 1.6s ease-in-out infinite;
+  }
+
+  /* Letter / word reveal */
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(0.4em); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise-in {
+    animation: rise-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  /* Slide for rotating word */
+  @keyframes word-cycle {
+    0% { opacity: 0; transform: translateY(0.4em); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-0.4em); }
+  }
+
+  /* Comparison row sweep */
+  @keyframes row-sweep {
+    0%, 100% { background-color: transparent; }
+    50% { background-color: color-mix(in oklch, var(--accent) 30%, transparent); }
+  }
+
+  /* Subtle tilt for accent badge */
+  @keyframes wobble-soft {
+    0%, 100% { transform: rotate(-2deg); }
+    50% { transform: rotate(-1deg) translateY(-1px); }
+  }
+  .wobble-soft {
+    animation: wobble-soft 4s ease-in-out infinite;
+  }
+
+  /* Custom scrollbar for description */
+  .scroll-editorial {
+    scrollbar-width: thin;
+    scrollbar-color: var(--foreground) transparent;
+  }
+  .scroll-editorial::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scroll-editorial::-webkit-scrollbar-thumb {
+    background: var(--foreground);
+  }
+  .scroll-editorial::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .pulse-live,
+  .wobble-soft {
+    animation: none !important;
+  }
 }

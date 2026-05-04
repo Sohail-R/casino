@@ -52,7 +52,7 @@ export function MortgageCalculator({ price, propertyTax = 0, hoaFees = 0 }: Mort
         <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
           / Breakdown
         </h4>
-        <div className="border-2 border-ink bg-card divide-y-2 divide-foreground">
+        <div className="border-2 border-ink bg-card divide-soft">
           <BreakdownRow label="Principal & interest" value={formatCurrency(calculations.monthlyPI)} />
           <BreakdownRow label="Property tax" value={formatCurrency(calculations.monthlyTax)} />
           {hoaFees > 0 && <BreakdownRow label="HOA fees" value={formatCurrency(hoaFees)} />}

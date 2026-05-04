@@ -249,6 +249,22 @@ export default function DashboardPage() {
                 onRemove={handleRemoveProperty}
                 onReplace={handleReplaceProperty}
               />
+            ) : properties.length === 1 ? (
+              // Single property: center, max width, then prompt for #2 below
+              <div className="space-y-10">
+                <div className="max-w-2xl mx-auto">
+                  <PropertyCard
+                    property={properties[0]}
+                    index={0}
+                    onRemove={() => handleRemoveProperty(0)}
+                    onReplace={() => handleReplaceProperty(0)}
+                  />
+                </div>
+
+                {!needsManualInput && replaceTarget === null && (
+                  <AddSecondPropertyPrompt />
+                )}
+              </div>
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {properties.map((property, index) => (
@@ -292,5 +308,67 @@ export default function DashboardPage() {
         )}
       </div>
     </main>
+  )
+}
+
+function AddSecondPropertyPrompt() {
+  const handleScrollToInput = () => {
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      // Focus the URL input shortly after scroll begins
+      setTimeout(() => {
+        const input = document.querySelector<HTMLInputElement>('input[type="url"]')
+        input?.focus()
+      }, 400)
+    }
+  }
+
+  return (
+    <div className="max-w-2xl mx-auto">
+      <div className="border-2 border-ink bg-card overflow-hidden">
+        <div className="border-b-2 border-ink px-5 py-2 bg-foreground text-background flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-accent ring-1 ring-background pulse-live" />
+            <span className="font-mono text-[10px] uppercase tracking-[0.25em]">
+              Slot 02 — Empty
+            </span>
+          </div>
+          <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/60">
+            Awaiting URL
+          </span>
+        </div>
+
+        <div className="px-7 py-9 text-center">
+          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-4">
+            Add a second listing to unlock comparison
+          </p>
+          <h3 className="font-display text-3xl sm:text-4xl text-foreground tracking-tight leading-[1.05] text-balance">
+            Drop one more Zillow URL
+            <br />
+            <em className="not-italic text-muted-foreground">to see the verdict.</em>
+          </h3>
+          <p className="text-foreground/70 mt-4 max-w-md mx-auto leading-relaxed">
+            We&apos;ll line them up side-by-side — price, taxes, mortgage, schools, walkability — and
+            tell you which one wins.
+          </p>
+
+          <button
+            onClick={handleScrollToInput}
+            className="group inline-flex items-center gap-3 mt-7 border-2 border-ink bg-foreground text-background px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-accent hover:text-accent-foreground transition-colors"
+          >
+            Add second property
+            <svg
+              className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
+              <path d="M12 19V5M5 12l7-7 7 7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }

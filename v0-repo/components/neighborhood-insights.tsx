@@ -101,7 +101,7 @@ export function NeighborhoodInsights({ property }: NeighborhoodInsightsProps) {
 
 function ScoreCell({ label, score, divider }: { label: string; score: number | null; divider?: boolean }) {
   return (
-    <div className={`p-4 ${divider ? 'border-l-2 border-ink' : ''}`}>
+    <div className={`p-5 ${divider ? 'border-l border-soft' : ''}`}>
       <p className="font-display text-4xl text-foreground leading-none">
         {score ?? '—'}
       </p>
