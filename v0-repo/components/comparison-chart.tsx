@@ -14,66 +14,65 @@ interface ComparisonChartProps {
 
 export function ComparisonChart({ data, title, subtitle }: ComparisonChartProps) {
   return (
-    <div className="p-4 bg-secondary/50 rounded-xl">
-      <div className="mb-4">
-        <h4 className="text-sm font-medium text-foreground">{title}</h4>
+    <div className="border-2 border-ink bg-card overflow-hidden">
+      <div className="border-b-2 border-ink px-4 py-2 bg-muted flex items-center justify-between">
+        <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-foreground">
+          {title}
+        </span>
         {subtitle && (
-          <p className="text-xs text-muted-foreground mt-0.5">{subtitle}</p>
+          <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+            {subtitle}
+          </span>
         )}
       </div>
-      
-      <div className="h-64">
+
+      <div className="h-64 p-4">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={data}
-            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-          >
-            <CartesianGrid 
-              strokeDasharray="3 3" 
-              stroke="var(--border)" 
-              vertical={false}
-            />
-            <XAxis 
-              dataKey="name" 
-              tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
-              axisLine={{ stroke: 'var(--border)' }}
+          <BarChart data={data} margin={{ top: 5, right: 16, left: 0, bottom: 5 }}>
+            <CartesianGrid strokeDasharray="2 4" stroke="var(--border-soft)" vertical={false} />
+            <XAxis
+              dataKey="name"
+              tick={{ fill: 'var(--muted-foreground)', fontSize: 11, fontFamily: 'var(--font-mono)' }}
+              axisLine={{ stroke: 'var(--foreground)', strokeWidth: 2 }}
               tickLine={false}
             />
-            <YAxis 
-              tick={{ fill: 'var(--muted-foreground)', fontSize: 12 }}
+            <YAxis
+              tick={{ fill: 'var(--muted-foreground)', fontSize: 11, fontFamily: 'var(--font-mono)' }}
               axisLine={false}
               tickLine={false}
             />
-            <Tooltip 
+            <Tooltip
+              cursor={{ fill: 'color-mix(in oklch, var(--foreground) 6%, transparent)' }}
               contentStyle={{
                 backgroundColor: 'var(--card)',
-                border: '1px solid var(--border)',
-                borderRadius: '8px',
-                fontSize: '12px',
+                border: '2px solid var(--foreground)',
+                borderRadius: 0,
+                fontSize: '11px',
+                fontFamily: 'var(--font-mono)',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
               }}
-              labelStyle={{ color: 'var(--foreground)', fontWeight: 500 }}
+              labelStyle={{ color: 'var(--foreground)', fontWeight: 600 }}
               itemStyle={{ color: 'var(--muted-foreground)' }}
             />
-            <Legend 
-              wrapperStyle={{ paddingTop: '20px' }}
-              formatter={(value) => (
-                <span style={{ color: 'var(--muted-foreground)', fontSize: '12px' }}>
-                  {value === 'property1' ? 'Property 1' : 'Property 2'}
+            <Legend
+              wrapperStyle={{ paddingTop: '12px' }}
+              formatter={value => (
+                <span
+                  style={{
+                    color: 'var(--muted-foreground)',
+                    fontSize: '10px',
+                    fontFamily: 'var(--font-mono)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.18em',
+                  }}
+                >
+                  {value === 'property1' ? 'Property 01' : 'Property 02'}
                 </span>
               )}
             />
-            <Bar 
-              dataKey="property1" 
-              fill="var(--chart-1)" 
-              radius={[4, 4, 0, 0]}
-              name="property1"
-            />
-            <Bar 
-              dataKey="property2" 
-              fill="var(--chart-2)" 
-              radius={[4, 4, 0, 0]}
-              name="property2"
-            />
+            <Bar dataKey="property1" fill="var(--chart-1)" name="property1" />
+            <Bar dataKey="property2" fill="var(--chart-2)" name="property2" />
           </BarChart>
         </ResponsiveContainer>
       </div>
