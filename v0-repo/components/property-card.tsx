@@ -121,27 +121,27 @@ export function PropertyCard({ property, index = 0, onRemove, onReplace }: Prope
           <TabsList className="grid w-full grid-cols-4 border-2 border-ink bg-card p-0 h-auto rounded-none">
             <TabsTrigger
               value="overview"
-              className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              className="rounded-none font-sans text-[13px] font-semibold py-3 data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
             >
               Overview
             </TabsTrigger>
             <TabsTrigger
               value="financial"
-              className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              className="rounded-none font-sans text-[13px] font-semibold py-3 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
             >
               Financial
             </TabsTrigger>
             <TabsTrigger
               value="neighborhood"
-              className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              className="rounded-none font-sans text-[13px] font-semibold py-3 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
             >
               Area
             </TabsTrigger>
             <TabsTrigger
               value="calculator"
-              className="rounded-none font-mono text-[10px] uppercase tracking-[0.2em] py-2.5 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
+              className="rounded-none font-sans text-[13px] font-semibold py-3 border-l-2 border-ink data-[state=active]:bg-foreground data-[state=active]:text-background data-[state=active]:shadow-none"
             >
-              Calc
+              Calculator
             </TabsTrigger>
           </TabsList>
 
@@ -178,11 +178,12 @@ export function PropertyCard({ property, index = 0, onRemove, onReplace }: Prope
             {cleanedDescription && (
               <div>
                 <div className="flex items-center justify-between mb-3">
-                  <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                    / Description
+                  <h4 className="eyebrow inline-flex items-center gap-2">
+                    <span className="inline-block w-1.5 h-1.5 rotate-45 bg-accent" />
+                    Description
                   </h4>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                    Scroll to read more
+                  <span className="label-soft text-xs italic">
+                    scroll to read more
                   </span>
                 </div>
                 <div className="border-2 border-ink bg-card">
@@ -249,17 +250,17 @@ export function PropertyCard({ property, index = 0, onRemove, onReplace }: Prope
             href={property.listingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full mt-7 py-3.5 border-2 border-ink bg-card text-foreground font-mono text-[11px] uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-colors"
+            className="flex items-center justify-center gap-2 w-full mt-7 py-3.5 border-2 border-ink bg-card text-foreground font-sans text-sm font-semibold tracking-wide hover:bg-foreground hover:text-background transition-colors"
           >
             View on Zillow
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
         )}
 
-        <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground text-center">
-          Scores & estimates are approximations
+        <p className="mt-4 label-soft text-xs text-center italic">
+          Scores &amp; estimates are approximations
         </p>
       </div>
     </article>
@@ -269,8 +270,9 @@ export function PropertyCard({ property, index = 0, onRemove, onReplace }: Prope
 function DetailSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground mb-3">
-        / {title}
+      <h4 className="eyebrow mb-3 inline-flex items-center gap-2">
+        <span className="inline-block w-1.5 h-1.5 rotate-45 bg-accent" />
+        {title}
       </h4>
       <div className="border-2 border-ink bg-card divide-soft">{children}</div>
     </div>

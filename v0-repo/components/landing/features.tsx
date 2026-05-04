@@ -37,8 +37,9 @@ export function Features() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
         <div className="grid lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
-              § What you get
+            <p className="eyebrow mb-6 inline-flex items-center gap-2.5">
+              <span className="inline-block w-2 h-2 rotate-45 bg-accent" />
+              What you get
             </p>
             <h2 className="font-display text-5xl sm:text-7xl text-foreground tracking-tight leading-[0.95] text-balance">
               Everything a real <em>diligence</em> looks like.
@@ -46,8 +47,8 @@ export function Features() {
           </div>
           <div className="lg:col-span-5 flex justify-start lg:justify-end">
             <div className="inline-flex items-center gap-2 border-2 border-ink px-3 py-2 bg-accent">
-              <span className="w-2 h-2 rounded-full bg-foreground" />
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-foreground">
+              <span className="w-2 h-2 rotate-45 bg-foreground" />
+              <span className="eyebrow-strong text-foreground">
                 Six pillars · One workflow
               </span>
             </div>
@@ -67,8 +68,10 @@ export function Features() {
                 border-ink`}
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                  / {String(i + 1).padStart(2, '0')} · {it.tag}
+                <span className="eyebrow inline-flex items-center gap-2">
+                  <span className="font-display text-base text-foreground/40 leading-none">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="w-3 h-px bg-foreground/30" />
+                  {it.tag}
                 </span>
                 <span className="w-6 h-6 border-2 border-ink flex items-center justify-center group-hover:bg-accent transition-colors">
                   <svg className="w-3 h-3 text-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">

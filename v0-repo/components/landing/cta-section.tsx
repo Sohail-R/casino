@@ -4,8 +4,9 @@ export function CtaSection() {
   return (
     <section className="bg-foreground text-background relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-36 text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-background/60 mb-10">
-          End of pitch · Beginning of clarity
+        <p className="eyebrow text-background/65 mb-10 inline-flex items-center gap-2.5 justify-center">
+          <span className="inline-block w-2 h-2 rotate-45 bg-accent" />
+          The decision is one click away
         </p>
 
         <h2 className="font-display text-background tracking-tight leading-[0.9] text-balance">
@@ -26,10 +27,10 @@ export function CtaSection() {
         <div className="mt-14 flex justify-center">
           <Link
             href="/dashboard"
-            className="group relative inline-flex items-center gap-4 border-2 border-background bg-accent text-accent-foreground px-10 sm:px-14 py-6 sm:py-8 font-mono text-base sm:text-lg uppercase tracking-[0.2em] hover:bg-background hover:text-foreground transition-colors"
+            className="group relative inline-flex items-center gap-4 border-2 border-background bg-accent text-accent-foreground px-10 sm:px-14 py-6 sm:py-8 font-sans text-base sm:text-lg font-bold tracking-wide hover:bg-background hover:text-foreground transition-colors"
           >
-            <span className="absolute -top-3 -left-3 border-2 border-background bg-foreground text-background w-7 h-7 flex items-center justify-center font-mono text-[10px]">
-              GO
+            <span className="absolute -top-3 -left-3 border-2 border-background bg-foreground text-background w-7 h-7 rotate-45 flex items-center justify-center">
+              <span className="-rotate-45 font-display text-base leading-none italic">P</span>
             </span>
             Open the analyzer
             <svg className="w-6 h-6 transition-transform group-hover:translate-x-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -38,7 +39,7 @@ export function CtaSection() {
           </Link>
         </div>
 
-        <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.3em] text-background/50">
+        <p className="mt-8 eyebrow text-background/55">
           Free · No account · Built for buyers
         </p>
       </div>
@@ -53,7 +54,7 @@ export function CtaSection() {
               PropInsight
             </span>
           </div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-background/50">
+          <p className="eyebrow text-background/55">
             © {new Date().getFullYear()} · Property analysis, decoded.
           </p>
         </div>

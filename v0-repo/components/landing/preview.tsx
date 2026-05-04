@@ -41,15 +41,17 @@ export function Preview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
         <div className="flex items-end justify-between flex-wrap gap-6 mb-12">
           <div>
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
-              § A look inside
+            <p className="eyebrow mb-6 inline-flex items-center gap-2.5">
+              <span className="inline-block w-2 h-2 rotate-45 bg-accent" />
+              A look inside
             </p>
             <h2 className="font-display text-5xl sm:text-7xl text-foreground tracking-tight leading-[0.95] text-balance max-w-3xl">
               The verdict, <em>instantly</em>.
             </h2>
           </div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground max-w-sm">
-            ↓ A real comparison rendered live in the dashboard
+          <p className="label-soft max-w-sm leading-relaxed">
+            <span className="font-display text-foreground text-xl mr-2 align-baseline">↓</span>
+            A real comparison rendered live in the dashboard
           </p>
         </div>
 
@@ -65,8 +67,8 @@ export function Preview() {
             <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
               propinsight / dashboard
             </span>
-            <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-foreground">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent pulse-live" />
+            <span className="inline-flex items-center gap-1.5 eyebrow-strong text-foreground">
+              <span className="w-1.5 h-1.5 rotate-45 bg-accent pulse-live" />
               Live
             </span>
           </div>
@@ -75,10 +77,8 @@ export function Preview() {
           <div className="grid grid-cols-2 border-b-2 border-ink">
             <div className="p-6 border-r-2 border-ink">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-3 h-3 rounded-full bg-foreground" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  Property 01
-                </span>
+                <span className="w-3 h-3 rotate-45 bg-foreground" />
+                <span className="eyebrow">Property 01</span>
               </div>
               <p className="font-display text-2xl text-foreground leading-tight">
                 412 Birchwood Lane
@@ -91,10 +91,8 @@ export function Preview() {
             </div>
             <div className="p-6 relative">
               <div className="flex items-center gap-2 mb-3">
-                <span className="w-3 h-3 rounded-full bg-accent ring-2 ring-foreground" />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
-                  Property 02
-                </span>
+                <span className="w-3 h-3 rotate-45 bg-accent ring-2 ring-foreground" />
+                <span className="eyebrow">Property 02</span>
               </div>
               <p className="font-display text-2xl text-foreground leading-tight">
                 89 Linden Crescent

@@ -4,19 +4,19 @@ import Link from 'next/link'
 import { useAnimatedNumber, useRotating } from '@/lib/use-animations'
 
 const ROTATING_WORDS = ['house', 'home', 'deal', 'condo', 'investment'] as const
-const MARQUEE_CITIES = [
-  'Austin, TX',
-  'Brooklyn, NY',
-  'Denver, CO',
-  'Seattle, WA',
-  'Portland, OR',
-  'Miami, FL',
-  'Chicago, IL',
-  'San Diego, CA',
-  'Nashville, TN',
-  'Boston, MA',
-  'Philadelphia, PA',
-  'Phoenix, AZ',
+const METRIC_RIBBON = [
+  'Price / sqft',
+  'Property tax',
+  'Mortgage estimate',
+  'Walk score',
+  'School rating',
+  'Days on market',
+  'Zestimate delta',
+  'HOA fees',
+  'Year built',
+  'Lot size',
+  'Transit access',
+  'Bike score',
 ] as const
 
 export function Hero() {
@@ -28,7 +28,7 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden border-b-2 border-ink">
-      <div className="absolute inset-0 grid-pattern opacity-60" aria-hidden="true" />
+      <div className="absolute inset-0 diamond-pattern" aria-hidden="true" />
       <div className="absolute inset-0 noise pointer-events-none" aria-hidden="true" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-20 sm:pt-20 sm:pb-28">
@@ -38,8 +38,12 @@ export function Hero() {
             <span className="absolute w-3 h-3 rounded-full bg-accent pulse-live" />
             <span className="relative w-1.5 h-1.5 rounded-full bg-foreground" />
           </span>
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-foreground">
-            Live · Vol. 01 · Issue 26 — Real-estate intelligence
+          <span className="eyebrow-strong">
+            Live · Property intelligence engine
+          </span>
+          <span className="hidden sm:inline-block w-8 h-px bg-foreground/30" />
+          <span className="hidden sm:inline-block eyebrow">
+            Built for buyers, not brokers
           </span>
         </div>
 
@@ -81,13 +85,13 @@ export function Hero() {
         <div className="mt-12 grid lg:grid-cols-12 gap-8 items-end rise-in" style={{ animationDelay: '460ms' }}>
           <div className="lg:col-span-7">
             <p className="text-foreground text-xl sm:text-2xl leading-snug max-w-2xl text-pretty">
-              PropInsight rips the data out of any Zillow listing and lays two
-              homes side-by-side — price, taxes, mortgage, schools, walkability —
+              PropInsight pulls the data out of any Zillow listing and lays two
+              homes side-by-side &mdash; price, taxes, mortgage, schools, walkability &mdash;
               so the better deal is impossible to miss.
             </p>
           </div>
           <div className="lg:col-span-5 lg:text-right">
-            <div className="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="inline-flex items-center gap-3 eyebrow">
               <span className="w-8 h-px bg-foreground" />
               <span>Scroll to learn how</span>
             </div>
@@ -106,7 +110,7 @@ export function Hero() {
         <div className="mt-10 flex flex-wrap items-center gap-4 rise-in" style={{ animationDelay: '660ms' }}>
           <Link
             href="/dashboard"
-            className="group inline-flex items-center gap-3 border-2 border-ink bg-foreground text-background px-6 py-4 font-mono text-sm uppercase tracking-[0.2em] hover:bg-accent hover:text-accent-foreground transition-colors"
+            className="group inline-flex items-center gap-3 border-2 border-ink bg-foreground text-background px-6 py-4 font-sans text-sm font-semibold tracking-wide hover:bg-accent hover:text-accent-foreground transition-colors"
           >
             Open the analyzer
             <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -115,25 +119,25 @@ export function Hero() {
           </Link>
           <a
             href="#how"
-            className="inline-flex items-center gap-2 border-2 border-ink bg-card text-foreground px-6 py-4 font-mono text-sm uppercase tracking-[0.2em] hover:bg-muted transition-colors"
+            className="inline-flex items-center gap-2 border-2 border-ink bg-card text-foreground px-6 py-4 font-sans text-sm font-semibold tracking-wide hover:bg-muted transition-colors"
           >
             See how it works
           </a>
         </div>
       </div>
 
-      {/* Marquee strip of cities */}
+      {/* Property-metric ribbon (replaces the city marquee) */}
       <div className="relative border-t-2 border-ink bg-foreground text-background overflow-hidden">
         <div className="flex whitespace-nowrap marquee-track py-3">
-          {[...MARQUEE_CITIES, ...MARQUEE_CITIES].map((city, i) => (
+          {[...METRIC_RIBBON, ...METRIC_RIBBON].map((metric, i) => (
             <span
-              key={`${city}-${i}`}
-              className="inline-flex items-center gap-3 px-6 font-mono text-xs uppercase tracking-[0.3em]"
+              key={`${metric}-${i}`}
+              className="inline-flex items-center gap-3 px-6 eyebrow-strong text-background"
             >
-              <span className="w-1 h-1 rounded-full bg-accent" />
-              {city}
+              <span className="w-1.5 h-1.5 rotate-45 bg-accent" />
+              {metric}
               <span className="text-background/40">·</span>
-              <span className="text-background/60">analyzed</span>
+              <span className="text-background/55 font-normal tracking-[0.16em]">analyzed</span>
             </span>
           ))}
         </div>
@@ -148,7 +152,7 @@ function StatBox({ big, small }: { big: string; small: string }) {
       <p className="font-display text-4xl sm:text-5xl text-foreground leading-none tabular-nums">
         {big}
       </p>
-      <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="mt-2 eyebrow">
         {small}
       </p>
     </div>

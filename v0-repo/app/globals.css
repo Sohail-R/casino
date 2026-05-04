@@ -4,46 +4,46 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Editorial light: warm paper background, jet black ink, electric lime accent */
-  --background: oklch(0.972 0.008 85);
-  --foreground: oklch(0.14 0.005 60);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.14 0.005 60);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.14 0.005 60);
+  /* Property analysis: warm cream paper, near-black ink, refined teal-cyan accent */
+  --background: oklch(0.965 0.018 78);
+  --foreground: oklch(0.16 0.012 60);
+  --card: oklch(0.99 0.012 80);
+  --card-foreground: oklch(0.16 0.012 60);
+  --popover: oklch(0.99 0.012 80);
+  --popover-foreground: oklch(0.16 0.012 60);
 
-  /* Primary = jet black ink */
-  --primary: oklch(0.14 0.005 60);
-  --primary-foreground: oklch(0.99 0.005 85);
+  /* Primary = near-black ink */
+  --primary: oklch(0.16 0.012 60);
+  --primary-foreground: oklch(0.98 0.014 80);
 
-  --secondary: oklch(0.94 0.008 85);
-  --secondary-foreground: oklch(0.14 0.005 60);
+  --secondary: oklch(0.93 0.018 78);
+  --secondary-foreground: oklch(0.16 0.012 60);
 
-  --muted: oklch(0.94 0.008 85);
-  --muted-foreground: oklch(0.42 0.008 60);
+  --muted: oklch(0.93 0.018 78);
+  --muted-foreground: oklch(0.44 0.012 60);
 
-  /* Accent = electric chartreuse */
-  --accent: oklch(0.92 0.22 125);
-  --accent-foreground: oklch(0.14 0.005 60);
+  /* Accent = vivid teal-cyan (property/architectural feel) */
+  --accent: oklch(0.74 0.135 210);
+  --accent-foreground: oklch(0.16 0.012 60);
 
-  --destructive: oklch(0.55 0.22 27);
-  --destructive-foreground: oklch(0.99 0.005 85);
+  --destructive: oklch(0.56 0.20 27);
+  --destructive-foreground: oklch(0.98 0.014 80);
 
-  --success: oklch(0.55 0.18 145);
-  --success-foreground: oklch(0.99 0.005 85);
+  --success: oklch(0.58 0.16 165);
+  --success-foreground: oklch(0.98 0.014 80);
 
-  --warning: oklch(0.78 0.16 75);
-  --warning-foreground: oklch(0.14 0.005 60);
+  --warning: oklch(0.78 0.14 70);
+  --warning-foreground: oklch(0.16 0.012 60);
 
   /* Borders are near-black for sharp editorial lines */
-  --border: oklch(0.14 0.005 60);
-  --border-soft: oklch(0.86 0.008 85);
-  --input: oklch(0.96 0.008 85);
-  --ring: oklch(0.14 0.005 60);
+  --border: oklch(0.16 0.012 60);
+  --border-soft: oklch(0.84 0.018 78);
+  --input: oklch(0.95 0.018 78);
+  --ring: oklch(0.16 0.012 60);
 
-  --chart-1: oklch(0.14 0.005 60);
-  --chart-2: oklch(0.92 0.22 125);
-  --chart-3: oklch(0.55 0.18 145);
+  --chart-1: oklch(0.16 0.012 60);
+  --chart-2: oklch(0.74 0.135 210);
+  --chart-3: oklch(0.58 0.16 165);
   --chart-4: oklch(0.65 0.18 30);
   --chart-5: oklch(0.50 0.12 250);
 
@@ -51,33 +51,33 @@
 }
 
 .dark {
-  --background: oklch(0.14 0.005 60);
-  --foreground: oklch(0.97 0.008 85);
-  --card: oklch(0.18 0.005 60);
-  --card-foreground: oklch(0.97 0.008 85);
-  --popover: oklch(0.18 0.005 60);
-  --popover-foreground: oklch(0.97 0.008 85);
-  --primary: oklch(0.97 0.008 85);
-  --primary-foreground: oklch(0.14 0.005 60);
-  --secondary: oklch(0.22 0.005 60);
-  --secondary-foreground: oklch(0.97 0.008 85);
-  --muted: oklch(0.22 0.005 60);
-  --muted-foreground: oklch(0.68 0.008 60);
-  --accent: oklch(0.92 0.22 125);
-  --accent-foreground: oklch(0.14 0.005 60);
-  --destructive: oklch(0.55 0.22 27);
-  --destructive-foreground: oklch(0.99 0.005 85);
-  --success: oklch(0.65 0.18 145);
-  --success-foreground: oklch(0.14 0.005 60);
-  --warning: oklch(0.78 0.16 75);
-  --warning-foreground: oklch(0.14 0.005 60);
-  --border: oklch(0.97 0.008 85);
-  --border-soft: oklch(0.30 0.005 60);
-  --input: oklch(0.22 0.005 60);
-  --ring: oklch(0.97 0.008 85);
-  --chart-1: oklch(0.97 0.008 85);
-  --chart-2: oklch(0.92 0.22 125);
-  --chart-3: oklch(0.65 0.18 145);
+  --background: oklch(0.16 0.012 60);
+  --foreground: oklch(0.96 0.014 80);
+  --card: oklch(0.20 0.012 60);
+  --card-foreground: oklch(0.96 0.014 80);
+  --popover: oklch(0.20 0.012 60);
+  --popover-foreground: oklch(0.96 0.014 80);
+  --primary: oklch(0.96 0.014 80);
+  --primary-foreground: oklch(0.16 0.012 60);
+  --secondary: oklch(0.24 0.012 60);
+  --secondary-foreground: oklch(0.96 0.014 80);
+  --muted: oklch(0.24 0.012 60);
+  --muted-foreground: oklch(0.68 0.012 60);
+  --accent: oklch(0.74 0.135 210);
+  --accent-foreground: oklch(0.16 0.012 60);
+  --destructive: oklch(0.56 0.20 27);
+  --destructive-foreground: oklch(0.98 0.014 80);
+  --success: oklch(0.65 0.16 165);
+  --success-foreground: oklch(0.16 0.012 60);
+  --warning: oklch(0.78 0.14 70);
+  --warning-foreground: oklch(0.16 0.012 60);
+  --border: oklch(0.96 0.014 80);
+  --border-soft: oklch(0.30 0.012 60);
+  --input: oklch(0.24 0.012 60);
+  --ring: oklch(0.96 0.014 80);
+  --chart-1: oklch(0.96 0.014 80);
+  --chart-2: oklch(0.74 0.135 210);
+  --chart-3: oklch(0.65 0.16 165);
   --chart-4: oklch(0.65 0.18 30);
   --chart-5: oklch(0.55 0.12 250);
 }
@@ -145,12 +145,47 @@
     font-feature-settings: 'liga', 'dlig';
     letter-spacing: -0.02em;
   }
-  .grid-pattern {
-    background-image:
-      linear-gradient(to right, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px);
-    background-size: 48px 48px;
+  /* Subtle filled-diamond background pattern (replaces the old grid). */
+  .diamond-pattern {
+    background-color: var(--background);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><path d='M16 11 L21 16 L16 21 L11 16 Z' fill='%23121212' fill-opacity='0.07'/><path d='M0 27 L5 32 L0 32 Z M27 0 L32 5 L32 0 Z M27 32 L32 27 L32 32 Z M0 0 L5 0 L0 5 Z' fill='%23121212' fill-opacity='0.05'/></svg>");
+    background-size: 32px 32px;
   }
+  .diamond-pattern-lg {
+    background-color: var(--background);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'><path d='M28 18 L38 28 L28 38 L18 28 Z' fill='%23121212' fill-opacity='0.05' stroke='%23121212' stroke-opacity='0.08' stroke-width='1'/></svg>");
+    background-size: 56px 56px;
+  }
+
+  /* Editorial sans-serif eyebrow — replaces blocky uppercase mono labels. */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted-foreground);
+  }
+  .eyebrow-strong {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--foreground);
+  }
+  .label-soft {
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted-foreground);
+  }
+
+  /* Legacy grid-pattern alias — keep as no-op to avoid breakage. */
+  .grid-pattern {
+    background-color: var(--background);
+  }
+
   .noise {
     position: relative;
   }

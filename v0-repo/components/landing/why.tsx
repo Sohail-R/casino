@@ -1,10 +1,11 @@
 export function Why() {
   return (
     <section id="why" className="border-b-2 border-ink relative overflow-hidden">
-      <div className="absolute inset-0 grid-pattern opacity-40" aria-hidden="true" />
+      <div className="absolute inset-0 diamond-pattern-lg opacity-70" aria-hidden="true" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-8">
-          § Why this exists
+        <p className="eyebrow mb-8 inline-flex items-center gap-2.5">
+          <span className="inline-block w-2 h-2 rotate-45 bg-accent" />
+          Why this exists
         </p>
 
         <blockquote className="font-display text-foreground text-4xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight max-w-5xl text-balance">

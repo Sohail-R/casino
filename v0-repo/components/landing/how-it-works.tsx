@@ -28,8 +28,9 @@ export function HowItWorks() {
         {/* Section header */}
         <div className="grid lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-7">
-            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
-              § How it works
+            <p className="eyebrow mb-6 inline-flex items-center gap-2.5">
+              <span className="inline-block w-2 h-2 rotate-45 bg-accent" />
+              How it works
             </p>
             <h2 className="font-display text-5xl sm:text-7xl text-foreground tracking-tight leading-[0.95] text-balance">
               Four steps. <em>Zero</em> spreadsheets.
